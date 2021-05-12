@@ -1,0 +1,57 @@
+<title>Lista ONG</title>
+<div class="container" >
+<br><br>
+  <br>
+<h2>Lista ONG</h2>
+	<form action="/listaOng" method="POST" enctype="multipart/form-data">
+			
+	</form>
+<br>
+<br>
+<br>
+	 <table class="table" >
+    <tr>
+		<th>Foto Perfil</th>
+        <th>Razão Social</th>
+        <th>CNPJ</th>
+        <th>Endereço</th>
+        <th>Número</th>
+        <th>Bairro</th>
+        <th>Cidade</th>
+        <th>Estado</th>
+        <th>E-mail</th>
+        <th>Telefone Fixo</th>
+        
+
+    </tr>
+    {{#each ong}}
+    
+    <tr>
+			 <td><img src="/static/imagens/{{foto}}" height="150px" width="150px"></td>
+          <td>{{razaoSocial}}</td>
+          <td>{{cnpj}}</td>
+          <td >{{endereco}}</td>
+          <td >{{numero}}</td>
+          <td >{{bairro}}</td>
+          <td >{{cidade}}</td>
+          <td >{{estado}}</td>
+          <td >{{email}}</td>
+          <td >{{telefoneFixo}}</td>
+      <td><a href="https://api.whatsapp.com/send?l=pt&amp;phone=55{{whatsapp}}"><img 
+src="https://i.imgur.com/ryESuZ5.png" style="height:64px;  z-index:99999;" data-selector="img"></a> WhatsApp </td>
+    </tr>
+    {{/each}}
+    </table>
+	
+
+	<br>
+	<br>
+	<br>	
+  </div>
+  <br>
+<br>
+<br>
+
+
+  
+	

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil ONG</title><br><br><br>
+</head>
+<body>
+<form action="/perfilOng" method="POST"></form>
+
+ 
+<div class="container">
+  {{#each ong}}
+    <input type="text" name="idOng" readonly="true" value="{{id}}">
+{{/each}}
+    <div class="row">
+      <div class="col-md-8">
+        <h2 class="my-4">Perfil ONG</h2>
+        <div class="card mb-4">
+          {{#each doacao}}
+          <td><img src="/static/imagens/{{foto}}" height="100px" width="100px"></td>
+          <div class="card-body">
+            <p class="card-text">{{razaoSocial}}</p>
+         
+          </div>
+        {{/each}}
+        </div>
+        <br>
+      </div>
+
+
+
+      <div class="col-md-4">
+         <div class="card my-4 btn-danger">
+          <h5 class="btn btn-warning">DOAR</h5>
+          <p>Para Fazer a doação é necessário entrar em contato via Whatsapp diretamente com a ONG. O cadastro do doador é opcional!</p>
+        </div>
+
+        <div class="card my-4">
+          <h5 class="card-header">Doar Alimento</h5>
+          <p> OBS: Alimentos devem ser não perecíveis,exemplo(arroz,feijão,farinha)!</p>
+        </div>
+
+        <div class="card my-4">
+          <h5 class="card-header">Doar Brinquedo</h5>
+          <p> OBS: Brinquedos devem estar em bom estado!</p>
+        </div>
+
+        <div class="card my-4">
+          <h5 class="card-header">Doar Dinheiro</h5>
+          <p> OBS: Esta doação é feita através de depósito bancário, ao entrar em contato com a ONG as informações serão repassadoas diretamente!</p>
+        </div>
+
+        <div class="card my-4">
+          <h5 class="card-header">Doar Vestuário</h5>
+          <p> OBS:As roupas devem estar em bom estado de uso e limpas!</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+   <div class="container social-icons">
+        <div >CNPJ: {{cnpj}}</div>
+        <div >Endereço: {{endereco}}</div>
+        <div >Número: {{numero}}</div>
+        <div >Bairro: {{bairro}}</div>
+        <div >Cidade: {{cidade}}</div>
+        <div >Estado: {{estado}}</div>
+        <div >E-mail: {{email}}</div>
+        <div >Telefone Fixo: {{telefoneFixo}}</div>
+        
+        
+    </div>
+
+<a href="https://api.whatsapp.com/send?l=pt&amp;phone={{whatsapp}}"><img 
+src="https://i.imgur.com/ryESuZ5.png" style="height:64px; position:fixed; bottom: 25px; right: 
+25px; z-index:99999;" data-selector="img"></a>
+      <br><br><br><br>
+     
+
+       </body>
+</html>

@@ -1,0 +1,70 @@
+<title>Update Doador</title>
+
+<br><br>
+  <br>
+<h2>Uptade Doador</h2>
+
+	<form action="/updateDoador" method="POST">
+	<div class="container" >
+		{{#each doador}}
+        	<div class="form-row">
+			<div class="form-group col-md-1">
+					<input type="text"  class="form-control" readonly="true" name="id" value={{id}}	>
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<input type="text"  class="form-control" placeholder="Nome" name="nome" value="{{nome}}">
+			</div>
+			<div class="form-group col-md-6">
+				<input type="number" class="form-control" placeholder="CPF/CNPJ" name="cpfcnpj" value="{{cpfcnpj}}" >
+			</div>
+		</div>
+
+		<div class="form-row">
+			<div class="form-group col-md-8">
+          		<input type="text" class="form-control" placeholder="Endereço" name="endereco" value="{{endereco}}" >
+        	</div>
+			<div class="form-group col-md-4">
+				<input type="number"  class="form-control" placeholder="Número" name="numero" value="{{numero}}">
+			</div>
+		</div>
+
+		<div class="form-row">
+			<div class="form-group col-md-4">
+          		<input type="text" class="form-control" placeholder="Bairro" name="bairro" value="{{bairro}}" >
+        	</div>
+			<div class="form-group col-md-4">
+				<input type="text"  class="form-control" placeholder="Cidade" name="cidade" value="{{cidade}}" >
+			</div>
+			<div class="form-group col-md-4">
+				<input type="text"  class="form-control" placeholder="Estado" name="estado" value="{{estado}}" >
+			</div>
+		</div>
+
+		<div class="form-row">
+			<div class="form-group col-md-6">
+          		<input type="email" class="form-control"  id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail" name="email" value="{{email}}" >
+        	</div>
+        	<div class="form-group col-md-6">
+				<input type="number"  class="form-control" placeholder="WhatsApp" name="whatszapp" value="{{whatszapp}}" >
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group form-check">
+				<input type="checkbox" class="form-check-input" id="exampleCheck1" name="notificacao" value={{notificacao}}>
+					<label class="form-check-label" for="exampleCheck1">Receber notificações de Doações</label>
+			</div>
+<br>	</div>
+      	<div class="form-row">
+			<div class="form-group ">
+				<button type="submit" class="btn btn-primary botao">Salvar</button>
+			</div>
+		</div>
+	
+	 </div>		
+	</form>
+    	{{/each}}
+		<br><br><br><br><br>
+ 
+	

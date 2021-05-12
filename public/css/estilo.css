@@ -1,0 +1,50 @@
+
+.container-fluid{
+    align-items: center;
+
+   
+  }
+  
+  p{
+    text-align: center;
+  }
+  h1{
+    color: aliceblue;
+    
+  }
+  h2,h4,h5{
+    color: black;
+    text-align: center;
+  }
+  .carousel-inner{
+    height: 400px;
+  }
+  .img{
+    height: 300px;
+  }
+  
+  #form{
+    position: relative;
+  }
+  .botao{
+    position: absolute;
+    margin-left: 37%;
+    
+  }
+  
+
+  
+  footer{
+    height: 50px;
+    position: fixed;
+    bottom: 0px;
+    width:100%
+
+  }
+
+  #tipoLogin{
+    text-align: center;
+    text-align: justify;
+  }
+
+  

@@ -1,0 +1,41 @@
+/*FUNCIONANDO
+1- CRUD completo de doador;
+2- Validação do login ong;
+3- Logoff;
+4- Delete ong;
+5- Upload de imagem ong;
+6- colocar placeholdel nos updates;
+
+
+
+
+
+
+NÃO FUNCIONANDO
+
+2- Update ong listar ao abrir o cadastro;
+3 - Criar feed das postagens;
+4- Login Administrador;
+
+*/
+
+OBS- Erro que deu, dentro de findAll coloquei && para duas condições e não funciona, ele interpretava como um ou e ai ele puchava o email
+ ou asenha e acessava, o correto é a vírgula para separar 2 condições entre CHAVES.
+
+
+
+18/02 - Fazer a relação entre as tabelas cadastroOng e cadastroDoação, para inserir na página index  através do 
+SELECT ongcadastros.razaoSocial,ongcadastros.foto, descricao,nivel from doacaocadastros
+inner join ongcadastros on ongcadastros.id = doacaocadastros.idOng;
+
+22/02 - concluido o alerta ao clicar nos botões de excluir;
+22/02 - realizado os ajustes nas listagens;
+23/02- realizado envio de email através do nodemailer e logo após deixei comentado pois no momento não vou utilizar, desativei no gmail 
+a opção de permitir apps menos seguros;
+01/03 - iniciando criação de rota para interligar 2 tabelas, cadastro de ong e cadastro de doação;
+02/03- incrementar criptografia no login;
+
+
+
+
+

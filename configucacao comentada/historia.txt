@@ -1,0 +1,35 @@
+Cliente pediu um site para que os doadores visualizem postagens de pedidos de doações 
+feitos por ong que tem sem cadastro no sistema e fazem essas postagens.
+Doadores não terão necessidade de se cadastrar, simplesmente poderão visualizar os pedidos e entrarem 
+em contato  com determinada ong para ver a forma de realizar as doações.
+
+Foi criado rota para fazer login que ao inserir credenciais de acesso inválidas apareça mensagem em vermelho dizendo
+que está incorreta.
+
+
+Para a ONG- deve exister um formulário para cadastro e alem disso um para Login da ong;
+
+Para o Doador- deve existir um formulário de cadastro opcional casa ele queira receber notificações de doação.
+
+
+
+FUNCIONALIDADES
+
+-> Cadastrar Ong      (ator:ong)---------> Realizado
+-> Editar Ong         (ator:ong)---------> Realizado
+-> Excluir Ong         (ator:ong)---------> Realizado(na versão 2 o administrador será responsável por inativar o 
+o usuário, e não excluir seu cadastro)
+-> Cadastrar Doador   (ator:doador)------> Realizado
+-> Editar Doador      (ator: doador)-----> Realizado(mas ainda não foi criado usuário de adm para alterar, na versão
+2 o administrador será responsável por alterar as informações do cadastro opcional do doador)
+-> Excluir doador     (ator:doador)------> Realizado(na versão 2 o administrador será responsável por inativar o 
+o cadastro, e não excluir seu cadastro)
+-> Cadastrar Doação   (ator: ong)--------> Realizado
+-> Editar Doação      (ator: ong) -------> Realizado
+-> Excluir Doação     (ator: ong)--------> Realizado(na versão 2 o administrador será responsável por inativar o 
+o cadastro, e não excluir seu cadastro)
+->Listar doações      (ator: sistema)----> Realizado
+->Listar Ongs         (ator: sistema)----> Realizado
+->Sair do Login      (ator: sistema)----> Realizado
+->Criptografar senha (ator: sistema)----> Realizado
+ 
