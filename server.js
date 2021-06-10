@@ -171,6 +171,7 @@ app.post('/updateDoacao',function(req,res){
         nivel:req.body.nivel},{
             where:{id:req.body.id}}
     ).then(function(){
+  
         doacaoCadastro.findAll().then(function(doacoes){
             res.render('cadastroDoacao',{doacao: doacoes.map(cadastradoacao => cadastradoacao.toJSON())})
     })
@@ -247,7 +248,7 @@ app.get('/updateOng/:id',function(req,res){
             res.render('updateOng',{ong: ongs.map(cadastramento => cadastramento.toJSON())})
     })
 })
-//depois vamos criar essa rota que envia para o banco de dados e chama o  formulario de edição
+//depois vamos criar essa rota que envia para o banco de dados e chamar o  formulario de edição da ong
 app.post('/updateOng',function(req,res){
     ongCadastro.update({
         razaoSocial:req.body.razaoSocial,
@@ -285,12 +286,14 @@ app.post('/updateOng',function(req,res){
             })
         })
     })
-//Criar select para ir na tabela no banco correta
+
+//Rota de login ong
 app.get('/verificaLogin',function(req,res){
     res.render('verificaLogin')
     req.session.usuarioteste = 1
 })
-//criando a rota da session para verificar a tabela correta
+
+//criando a rota da session para verificar  se email e senha conferem no banco de dados
 app.post('/verificaLogin',function (req,res){
 
     req.session.email = req.body.email;
@@ -313,6 +316,20 @@ app.post('/verificaLogin',function (req,res){
         }
     })
     })
+
+//criando nova rota get para chamar as informações com tal id
+app.get('/perfilOng/:idOng',function(req,res){
+    ongCadastro.findAll({where:{'id':req.params.idOng}}).then(function(ongs){
+            res.render('perfilOng',{ong: ongs.map(cadastramento => cadastramento.toJSON())})
+    })
+})
+
+//criando nova rotas para listagem
+app.get('/listaOng',function(req,res){
+    ongCadastro.findAll().then(function(ongs){
+            res.render('listaOng',{ong: ongs.map(cadastramento => cadastramento.toJSON())})
+    })
+})
 //TERMINANDO CONFIGURACÕES DA ONG
    
 
@@ -329,25 +346,6 @@ app.get('/logoff',function(req,res){
     })
 })
 
-
-
-//criando nova rotas para listagem
-app.post('/perfilOng',function(req,res){
-    ongCadastro.findAll({ where:{'id':req.params.id}}).then(function(ongs){
-            res.render('perfilOng',{ong: ongs.map(cadastramento => cadastramento.toJSON())})
-    })
-})
-app.get('/perfilOng',function(req,res){
-    res.render('perfilOng')
-})
-
-
-app.get('/listaOng',function(req,res){
-    ongCadastro.findAll().then(function(ongs){
-            res.render('listaOng',{ong: ongs.map(cadastramento => cadastramento.toJSON())})
-    })
-})
-//terminando de criar as rotas de listagem
 
 
 
