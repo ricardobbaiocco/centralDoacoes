@@ -154,6 +154,13 @@ app.get('/cadastroDoacao',function(req,res){
         res.render('cadastroDoacao',{doacao: doacoes.map(cadastradoacao => cadastradoacao.toJSON())})
     })
 })
+//criando nova rota get para chamar somente as doações do id logado
+app.get('/listaDoacao/:idOng',function(req,res){
+    doacaoCadastro.findAll({where:{'id':req.params.idOng}}).then(function(doacoes){
+            res.render('cadastroDoacao',{doacao: doacoes.map(cadastrodoacao => cadastrodoacao.toJSON())})
+    })
+})
+
 //criando nova rota para formulario de updateDoacao
 app.get('/updateDoacao/:id',function(req,res){
     doacaoCadastro.findAll({ where:{'id':req.params.id}}).then(function(doacoes){
@@ -295,19 +302,20 @@ app.get('/verificaLogin',function(req,res){
 
 //criando a rota da session para verificar  se email e senha conferem no banco de dados
 app.post('/verificaLogin',function (req,res){
-
+    
     req.session.email = req.body.email;
     req.session.senha = crypto(req.body.senha);
    
-
     ongCadastro.count({where:[{ email: req.session.email },{senha: req.session.senha }]}).then(function(dados){
         if(dados >=1){
-             ongCadastro.findAll({where: { email:req.session.email} && { email:req.session.email}}).then(function(ongs){
-            res.render('cadastroDoacao',{ong: ongs.map(cadastramento => cadastramento.toJSON())})
-        })
-    
-        }
-        else if(req.session.usuarioteste == 1){
+            ongCadastro.findAll({where:{email:req.session.email}}).then(function(ongs){
+                 idUsuario = ongs.map(u => u.toJSON().id)
+                 req.session.idUsuario = idUsuario.toString()
+                doacaoCadastro.findAll({where:{ idOng:req.session.idUsuario}}).then(function(doacoes){
+                     res.render('cadastroDoacao',{doacao: doacoes.map(cadastramento => cadastramento.toJSON())})
+                })
+                })
+        }else if(req.session.usuarioteste == 1){
             res.render("verificaLogin",{mensagem:"Usuário Inválido"})
             req.session.usuarioteste++
         }else{
@@ -315,7 +323,7 @@ app.post('/verificaLogin',function (req,res){
             
         }
     })
-    })
+})
 
 //criando nova rota get para chamar as informações com tal id
 app.get('/perfilOng/:idOng',function(req,res){
@@ -327,9 +335,17 @@ app.get('/perfilOng/:idOng',function(req,res){
 //criando nova rotas para listagem
 app.get('/listaOng',function(req,res){
     ongCadastro.findAll().then(function(ongs){
-            res.render('listaOng',{ong: ongs.map(cadastramento => cadastramento.toJSON())})
+            res.render('cadastroOng',{ong: ongs.map(cadastramento => cadastramento.toJSON())})
     })
 })
+/*
+//criando nova rota get para listar opção de editar apenas a ong logada
+app.get('/listaEditarOng/:idOng',function(req,res){
+    ongCadastro.findAll({where:{'id':req.params.id}}).then(function(ongs){
+            res.render('perfilOng',{ong: ongs.map(cadastramento => cadastramento.toJSON())})
+    })
+})
+*/
 //TERMINANDO CONFIGURACÕES DA ONG
    
 
